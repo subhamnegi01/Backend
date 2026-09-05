@@ -8,6 +8,6 @@ function sub(a,b){
     console.log(a-b);
 }
 
-module.exports = { sum, sub };
+module.exports = { sum, sub }
 
-console.log("Hello India!");
+console.log("Hello India!")
