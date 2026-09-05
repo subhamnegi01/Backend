@@ -1,4 +1,4 @@
-const {sum, sub} = require("./second.js")
+const {sum, sub} = require("./second.js");
 
 
 
