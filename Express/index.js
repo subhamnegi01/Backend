@@ -17,6 +17,21 @@ app.get("/user",(req, res)=>{
     res.send({name: "Subham"})
 } )
 
+
+
+
+// Parse incoming JSON requests
+app.use(express.json())
+
+app.post("/user", (req, res)=>{
+
+    console.log(req.body)
+    res.send("Data received successfully")
+})
+
+
+
+
 app.listen(4000, ()=>{
     console.log("Server is running on port 4000")
 })
