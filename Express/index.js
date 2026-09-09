@@ -13,6 +13,10 @@ app.use("/details", (req, res)=>{
     res.send("<h1>We are a team of developers</h1>")
 })
 
+app.get("/user",(req, res)=>{
+    res.send({name: "Subham"})
+} )
+
 app.listen(4000, ()=>{
     console.log("Server is running on port 4000")
 })
