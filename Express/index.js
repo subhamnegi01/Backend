@@ -8,6 +8,8 @@ const BookStore = [
     {id : 4, name: "HalfGirlFriend",author: "Chetan" }
 ]
 
+app.use(express.json())
+
 
 app.use("/about", (req, res)=>{
     res.send({name: "Coder Army", age: 2, email: "example@email.com", money: 1000, isActive: true})
@@ -35,6 +37,13 @@ app.get("/book/:id", (req, res)=>{
     res.send(book)
 })
 
+
+
+app.post("/book", (req,res)=>{
+    console.log(req.body)
+    BookStore.push(req.body)
+    res.send("Book added successfully")
+})
 
 
 app.get("/user",(req, res)=>{
