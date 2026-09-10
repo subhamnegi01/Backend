@@ -27,10 +27,12 @@ app.get("/book", (req, res)=>{
     res.send(BookStore)
 })
 
-app.get("/book/: id", (req, res)=>{
+app.get("/book/:id", (req, res)=>{
     
-    console.log(req.params)
-    res.send("This is")
+    // console.log(req.params)
+    const id = parseInt(req.params.id)
+    const book = BookStore.find(info => info.id === id)
+    res.send(book)
 })
 
 
