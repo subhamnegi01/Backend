@@ -40,6 +40,14 @@ app.patch("/book", (req, res)=>{
     res.send("Patch request received")
 })
 
+app.put("/book", (req, res)=>{
+    
+    const book = BookStore.find(info=> info.id === req.body.id)
+    book.name = req.body.name
+    book.author = req.body.author
+    res.send("Put request received")
+})
+
 
 
 // Parse incoming JSON requests
