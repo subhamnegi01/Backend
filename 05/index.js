@@ -3,7 +3,7 @@ const app = express()
 
 const BookStore = [
     {id : 1, name: "Harry Porter",author: "DevFlux" },
-    {id : 2, name: "Friends",author: "Vikas" },
+    {id : 2, name: "Friends",author: "Vikas"},
     {id : 3, name: "Katha",author: "Premchand" },
     {id : 4, name: "HalfGirlFriend",author: "Chetan"}
 ]
