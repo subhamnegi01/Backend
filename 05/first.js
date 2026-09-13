@@ -1,8 +1,14 @@
 const express = require("express")
 const app = express()
 
-app.use("/user", (req, res)=>{
+app.use("/user", (req, res, next)=>{
+    console.log("Middleware 1")
     res.send("Subham")
+    next()
+},
+(req, res)=>{
+    console.log("Hello")
+    res.send("Hello Ji")
 })
 
 
