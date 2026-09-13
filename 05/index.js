@@ -50,6 +50,11 @@ app.put("/book", (req, res)=>{
     res.send("Put request received")
 })
 
+app.delete("/book/:id", (req, res)=>{
+    const id = req.params.id
+
+    const index = BookStore.findIndex(info => info.id === id)
+})
 
 
 // Parse incoming JSON requests
