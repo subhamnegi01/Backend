@@ -51,9 +51,11 @@ app.put("/book", (req, res)=>{
 })
 
 app.delete("/book/:id", (req, res)=>{
-    const id = req.params.id
+    const id = parseInt(req.params.id)
 
     const index = BookStore.findIndex(info => info.id === id)
+    BookStore.splice(index, 1)
+    res.send("Book deleted successfully")
 })
 
 
