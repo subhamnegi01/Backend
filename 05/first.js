@@ -3,7 +3,7 @@ const app = express()
 
 app.use("/user", (req, res, next)=>{
     console.log("Middleware 1")
-    res.send("Subham")
+    // res.send("Subham")
     next()
 },
 (req, res)=>{
