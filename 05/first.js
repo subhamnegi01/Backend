@@ -2,7 +2,9 @@ const express = require("express")
 const app = express()
 
 app.use("/user", (req, res, next)=>{
-    console.log("Middleware 1")
+
+    console.log(`${Date.now()} - ${req.method} - ${req.url}`)
+    // console.log("Middleware 1")
     // res.send("Subham")
     next()
 },
