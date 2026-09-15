@@ -26,7 +26,16 @@ app.get("/food", (req, res)=>{
 })
 
 app.get("/admin", (req, res)=>{
-    res.send()
+    const token = "ABCDEF"
+    const Access = token === "ABCDEF" ? 1:0
+
+    if(Access){
+        FoodMenu.push(req.body)
+        res.send("Food Added Successfully")
+    }
+    else{
+        res.send("Access Denied")
+    }
 })
 
 app.listen(2000, ()=>{
