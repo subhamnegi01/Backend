@@ -1,19 +1,34 @@
 const express = require("express")
 const app = express()
 
-app.use("/user", (req, res, next)=>{
 
-    console.log(`${Date.now()} - ${req.method} - ${req.url}`)
-    // console.log("Middleware 1")
-    // res.send("Subham")
-    next()
-},
-(req, res)=>{
-    console.log("Hello" )
-    res.send("Hello Ji")
+const FoodMenu = [
+    {id:1 , food: "Chowmein", category: "Chinese", price: 150},
+    {id:2 , food: "Fried Rice", category: "Chinese", price: 120},
+    {id:3 , food: "Pizza", category: "Italian", price: 250},
+    {id:4 , food: "Pasta", category: "Italian", price: 200},
+    {id:5 , food: "Burger", category: "Fast Food", price: 100},
+    {id:6 , food: "Sandwich", category: "Fast Food", price: 80},
+    {id:7 , food: "Tacos", category: "Mexican", price: 180},
+    {id: 8, food: "Chiken Tikka", category: "Indian", price: 220},
+    {id: 9, food: "Paneer Butter Masala", category: "Indian", price: 200},
+    {id: 10, food: "Sushi", category: "Japanese", price: 300},
+    {id: 11, food: "Mutton", category: "Mutton", price: 250},
+    {id: 12, food: "Fish Curry", category: "Seafood", price: 220},
+    {id: 13, food: "Lobster", category: "Seafood", price: 400},
+    {id: 14, food: "Paneer", category: "Indian", price: 350},
+]
+
+const AddToCart = []
+
+app.get("/food", (req, res)=>{
+    res.send(FoodMenu)
 })
 
+app.get("/admin", (req, res)=>{
+    res.send()
+})
 
-app.listen(5000, ()=>{
-    console.log("Server is running on port 5000")
+app.listen(2000, ()=>{
+    console.log("Server is running on port 2000")
 })
