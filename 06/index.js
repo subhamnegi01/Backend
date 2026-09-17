@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
 
+app.use(express.json())
 
 const FoodMenu = [
     {id:1 , food: "Chowmein", category: "Chinese", price: 150},
@@ -22,7 +23,7 @@ const FoodMenu = [
 const AddToCart = []
 
 app.get("/food", (req, res)=>{
-    res.send(FoodMenu)
+    res.status(200).send(FoodMenu)
 })
 
 app.get("/admin", (req, res)=>{
@@ -34,7 +35,25 @@ app.get("/admin", (req, res)=>{
         res.send("Food Added Successfully")
     }
     else{
-        res.send("Access Denied")
+        res.status(403).send("Access Denied")
+    }
+})
+
+app.delete("/admin/:id", (req, res)=>{
+    const token = "ABCDEF"
+    const Access = token === "ABCDEF" ? 1:0
+
+    if(Access){
+        const id = parseInt(req.params.id)
+        const index = FoodMenu.findIndex(item => item.id === id)
+        if(index !== -1){
+            res.status(404).send("Food item does't present")
+        } else {
+            res.status(200).send("Successfully Deleted")
+        }
+    }
+    else{
+        res.status(403).send("Access Denied")
     }
 })
 
