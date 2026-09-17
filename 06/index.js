@@ -1,69 +1,43 @@
 const express = require("express")
 const app = express()
 
-const BookStore = [
-    {id : 1, name: "Harry Porter",author: "DevFlux" },
-    {id : 2, name: "Friends",author: "Vikas"},
-    {id : 3, name: "Katha",author: "Premchand" },
-    {id : 4, name: "HalfGirlFriend",author: "Chetan"}
+
+const FoodMenu = [
+    {id:1 , food: "Chowmein", category: "Chinese", price: 150},
+    {id:2 , food: "Fried Rice", category: "Chinese", price: 120},
+    {id:3 , food: "Pizza", category: "Italian", price: 250},
+    {id:4 , food: "Pasta", category: "Italian", price: 200},
+    {id:5 , food: "Burger", category: "Fast Food", price: 100},
+    {id:6 , food: "Sandwich", category: "Fast Food", price: 80},
+    {id:7 , food: "Tacos", category: "Mexican", price: 180},
+    {id: 8, food: "Chiken Tikka", category: "Indian", price: 220},
+    {id: 9, food: "Paneer Butter Masala", category: "Indian", price: 200},
+    {id: 10, food: "Sushi", category: "Japanese", price: 300},
+    {id: 11, food: "Mutton", category: "Mutton", price: 250},
+    {id: 12, food: "Fish Curry", category: "Seafood", price: 220},
+    {id: 13, food: "Lobster", category: "Seafood", price: 400},
+    {id: 14, food: "Paneer", category: "Indian", price: 350},
 ]
 
+const AddToCart = []
 
-
-app.use(express.json())
-
-
-
-app.get("/book", (req, res)=>{
-    res.send(BookStore)
+app.get("/food", (req, res)=>{
+    res.send(FoodMenu)
 })
 
-app.get("/book/:id", (req, res)=>{
-    
-    // console.log(req.params)
-    const id = parseInt(req.params.id)
-    const book = BookStore.find(info => info.id === id)
-    res.send(book)
+app.get("/admin", (req, res)=>{
+    const token = "ABCDEF"
+    const Access = token === "ABCDEF" ? 1:0
+
+    if(Access){
+        FoodMenu.push(req.body)
+        res.send("Food Added Successfully")
+    }
+    else{
+        res.send("Access Denied")
+    }
 })
 
-
-
-app.post("/book", (req,res)=>{
-    console.log(req.body)
-    BookStore.push(req.body)
-    res.send("Book added successfully")
-})
-
-app.patch("/book", (req, res)=>{
-    console.log(req.body)
-
-    const book = BookStore.find(info=> info.id === req.body.id)
-    book.name = req.body.name
-    res.send("Patch request received")
-})
-
-app.put("/book", (req, res)=>{
-    
-    const book = BookStore.find(info=> info.id === req.body.id)
-    book.name = req.body.name
-    book.author = req.body.author
-    res.send("Put request received")
-})
-
-app.delete("/book/:id", (req, res)=>{
-    const id = parseInt(req.params.id)
-
-    const index = BookStore.findIndex(info => info.id === id)
-    BookStore.splice(index, 1)
-    res.send("Book deleted successfully")
-})
-
-
-// Parse incoming JSON requests
-
-app.use(express.json())
-
-
-app.listen(4000, ()=>{
-    console.log("Server is running on port 4000")
+app.listen(2000, ()=>{
+    console.log("Server is running on port 2000")
 })
