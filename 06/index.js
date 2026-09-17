@@ -89,6 +89,19 @@ app.patch("/admin/:id", (req, res)=>{
     }
 })
 
+app.post("/user/:id", (req, res)=>{
+    const id = parseInt(req.params.id)
+    const foodItem = FoodMenu.find(item => item.id === id)
+
+    if(foodItem){
+        AddToCart.push(foodItem)
+        res.send("Food Added to Cart")
+    }
+    else {
+        res.send("Food item does't present")
+    }
+})
+
 
 
 app.listen(2000, ()=>{
