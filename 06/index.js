@@ -26,6 +26,17 @@ app.get("/food", (req, res)=>{
     res.status(200).send(FoodMenu)
 })
 
+app.use("/admin", (req, res, next)=>{
+    const token = "ABCDEF"
+    const Access = token === "ABCDEF" ? 1:0
+
+    if(!Access){
+        res.status(403).send("Access Denied")
+        return
+    }
+    next()
+})
+
 app.get("/admin", (req, res)=>{
     const token = "ABCDEF"
     const Access = token === "ABCDEF" ? 1:0
