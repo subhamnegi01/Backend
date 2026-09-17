@@ -46,16 +46,38 @@ app.delete("/admin/:id", (req, res)=>{
     if(Access){
         const id = parseInt(req.params.id)
         const index = FoodMenu.findIndex(item => item.id === id)
-        if(index !== -1){
-            res.status(404).send("Food item does't present")
+        if(index === -1){
+            res.send("Food item does't present")
         } else {
-            res.status(200).send("Successfully Deleted")
+            FoodMenu.splice(index, 1)
+            res.send("Successfully Deleted")
         }
     }
     else{
         res.status(403).send("Access Denied")
     }
 })
+
+app.patch("/admin/:id", (req, res)=>{
+    const token = "ABCDEF"
+    const Access = token === "ABCDEF" ? 1:0
+
+    if(Access){
+        const id = parseInt(req.params.id)
+        const index = FoodMenu.findIndex(item => item.id === id)
+        if(index === -1){
+            res.send("Food item does't present")
+        } else {
+            FoodMenu[index] = {...FoodMenu[index], ...req.body}
+            res.send("Successfully Updated")
+        }
+    }
+    else{
+        res.status(403).send("Access Denied")
+    }
+})
+
+
 
 app.listen(2000, ()=>{
     console.log("Server is running on port 2000")
