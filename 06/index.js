@@ -102,6 +102,29 @@ app.post("/user/:id", (req, res)=>{
     }
 })
 
+app.delete("/user/:id", (req, res)=>{
+    const id = parseInt(req.params.id)
+    const index = AddToCart.findIndex(item => item.id === id)
+
+    if(index != -1){
+        AddToCart.splice(index, 1)
+        res.send("Food item removed from Cart")
+    } else {
+        res.send("Food item does't present in cart")
+    }
+})
+
+
+app.get("/user/cart", (req, res)=>{
+    res.send(AddToCart)
+
+    if(AddToCart.length === 0){
+        res.send("Cart is Empty")
+    }
+    else {
+        res.send(AddToCart)
+    }
+})
 
 
 app.listen(2000, ()=>{
