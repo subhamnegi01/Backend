@@ -126,6 +126,15 @@ app.get("/user/cart", (req, res)=>{
     }
 })
 
+app.get("/dummy", (req, res)=>{
+    try{
+    JSON.parse('{"name": "Subham"}')
+    res.send("Hello Coder")
+    }
+    catch(err){
+        res.send("Some error occured")
+    }
+})
 
 app.listen(2000, ()=>{
     console.log("Server is running on port 2000")
