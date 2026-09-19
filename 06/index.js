@@ -124,7 +124,7 @@ app.get("/user/cart", (req, res)=>{
     else {
         res.send(AddToCart)
     }
-})
+});
 
 app.get("/dummy", (req, res)=>{
     try{
