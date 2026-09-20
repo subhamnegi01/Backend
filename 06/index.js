@@ -100,7 +100,7 @@ app.post("/user/:id", (req, res)=>{
     else {
         res.send("Food item does't present")
     }
-})
+});
 
 app.delete("/user/:id", (req, res)=>{
     const id = parseInt(req.params.id)
