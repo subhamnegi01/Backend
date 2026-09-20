@@ -112,7 +112,7 @@ app.delete("/user/:id", (req, res)=>{
     } else {
         res.send("Food item does't present in cart")
     }
-})
+});
 
 
 app.get("/user/cart", (req, res)=>{
