@@ -89,7 +89,7 @@ app.patch("/admin/:id", (req, res)=>{
     }
 })
 
-app.post("/user/:id", (req, res)=>{
+app.post("/user/:id", (req,res)=>{
     const id = parseInt(req.params.id)
     const foodItem = FoodMenu.find(item => item.id === id)
 
@@ -102,7 +102,7 @@ app.post("/user/:id", (req, res)=>{
     }
 });
 
-app.delete("/user/:id", (req, res)=>{
+app.delete("/user/:id", (req,res)=>{
     const id = parseInt(req.params.id)
     const index = AddToCart.findIndex(item => item.id === id)
 
