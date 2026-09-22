@@ -115,7 +115,7 @@ app.delete("/user/:id", (req,res)=>{
 });
 
 
-app.get("/user/cart", (req, res)=>{
+app.get("/user/cart", (req,res)=>{
     res.send(AddToCart)
 
     if(AddToCart.length === 0){
