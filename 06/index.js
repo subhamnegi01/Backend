@@ -70,7 +70,7 @@ app.delete("/admin/:id", (req, res)=>{
     }
 })
 
-app.patch("/admin/:id", (req, res)=>{
+app.patch("/admin/:id", (req,res)=>{
     const token = "ABCDEF"
     const Access = token === "ABCDEF" ? 1:0
 
