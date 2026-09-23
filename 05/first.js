@@ -8,7 +8,7 @@ app.use("/user", (req, res, next)=>{
     // res.send("Subham")
     next()
 },
-(req, res)=>{
+(req,res)=>{
     console.log("Hello" )
     res.send("Hello Ji")
 })
