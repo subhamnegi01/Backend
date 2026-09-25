@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 
-app.use("/user", (req, res, next)=>{
+app.use("/user", (req, res,next)=>{
 
     console.log(`${Date.now()} - ${req.method} - ${req.url}`)
     // console.log("Middleware 1")
