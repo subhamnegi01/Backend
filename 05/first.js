@@ -9,7 +9,7 @@ app.use("/user", (req, res, next)=>{
     next()
 },
 (req,res)=>{
-    console.log("Hello" )
+    console.log("Hello")
     res.send("Hello Ji")
 })
 

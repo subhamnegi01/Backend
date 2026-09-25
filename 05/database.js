@@ -1,0 +1,1 @@
+const url = "mongodb+srv://subhamnegi01:subhamnegi01@codingadda.nuxfwtc.mongodb.net/"
