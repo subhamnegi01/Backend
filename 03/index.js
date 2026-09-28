@@ -7,7 +7,7 @@ console.log(b)
 
 function sum(a,b){
     return(a+b);
-}
+};
 
 // const data = fs.readFileSync("./data.json", "utf-8")
 // console.log(data)
