@@ -22,4 +22,4 @@ setTimeout(() =>{
 }, 3000);
 
 console.log(a)
-console.log(sum(10,20))
+console.log(sum(10,20));
