@@ -17,7 +17,7 @@ fs.readFile("./data.json", "utf-8", (err, data) => {
 })
 
 
-setTimeout(() => {
+setTimeout(() =>{
     console.log("Hello India")
 }, 3000);
 
