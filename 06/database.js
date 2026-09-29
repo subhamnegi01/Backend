@@ -1,0 +1,1 @@
+"mongodb+srv://negi262001_db_user:negi262001_db_user@cluster0.0e1gx9y.mongodb.net/"
