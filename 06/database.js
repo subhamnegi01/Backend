@@ -1,1 +1,1 @@
-"mongodb+srv://negi262001_db_user:negi262001_db_user@cluster0.0e1gx9y.mongodb.net/"
+const url = "mongodb+srv://subhamnegidhananjay_db_user:subhamnegidhananjay_db_user@cluster0.adcvj1r.mongodb.net/?appName=Cluster0"
