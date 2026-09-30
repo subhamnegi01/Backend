@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 
-app.use(express.json())
+app.use(express.json());
 
 const FoodMenu = [
     {id:1 , food: "Chowmein", category: "Chinese", price: 150},
